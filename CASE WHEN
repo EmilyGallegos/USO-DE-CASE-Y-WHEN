@@ -1,0 +1,14 @@
+SELECT 
+	nombre_producto as "producto",
+    precio,
+CASE
+	WHEN descripcion LIKE "mesa%" THEN "muebles"
+    WHEN descripcion LIKE "jabon%" THEN "ASEO"
+	WHEN descripcion LIKE "microhondas%" THEN "ELECTRONICO"
+    ELSE "OTRO TIPO"
+END as tipo,
+CASE
+	WHEN precio > 100000 THEN "costoso"
+    ELSE "barato"
+END "descCosto"    
+FROM `producto`;
